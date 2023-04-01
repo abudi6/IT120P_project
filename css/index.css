@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
 
+
+
 body{
     margin:0;
     line-height: 1.5;
     background-color: #f3f2f1;
+    
    }
+
 
 .home{
     align-items: center;
@@ -77,7 +81,6 @@ section{
     padding:11px 0;
     color:white;
     text-shadow: 5px 5px 5px black;
-    
     text-align:center;
     flex-wrap: wrap;
  }

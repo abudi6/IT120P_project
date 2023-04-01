@@ -26,9 +26,7 @@ nav a{
     color: #FCC419;
 }
 
-nav a:hover{
-    color: #fff;
-}
+
 
 .logo {
     flex: 1;
@@ -40,11 +38,10 @@ nav a:hover{
     font-size: 30px;
     font-weight:800;
     color: #FCC419;
+    text-decoration: none;
 }
 
-.logo a:hover{
-    color: #fff;
-}
+
 
 .logo img{
     width: 60px;
@@ -62,6 +59,14 @@ nav a:hover{
 .menu li{
     padding: 15px 20px;
     font-size: 16px;
+}
+
+.menu a{
+  text-decoration: none;
+}
+
+.menu a:hover{
+    color: #fff;
 }
 
 .toggle{
@@ -86,6 +91,10 @@ nav a:hover{
     font-weight:800;
     font-size:16px;
     color:#0E1B33;
+  }
+
+  .footer-dark p {
+    color: gray;
   }
   
   .footer-dark ul {
