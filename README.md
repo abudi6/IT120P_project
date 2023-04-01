@@ -2,8 +2,7 @@
  
  <pre>
  
-  MEMBERS:  <br>
-           Abdurahman Azzouni <br>
+  MEMBERS: Abdurahman Azzouni <br>
            Rosanne Erpelo <br>
            Joshua Sam Picato <br>
            Justin George Talavera <br>
