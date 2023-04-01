@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>E-LEARNSTER: Web-based Learning Management System</title>
+
+        <!--custom links-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!--css file link-->
+        <link rel="stylesheet" href="css/navbar-footer.css" />
+        <link rel="stylesheet" href="css/index.css" />
+
+    </head>
+    <body>
+        <!-- Navigation bar -->
+        <nav>
+            <div class="logo">
+                <a href="#"><img src="assets/icons/logo.png" alt="logo">E-LEARNSTER</a>
+            </div>
+            <div class="toggle">
+                <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+            </div>
+            <ul class="menu">
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT US</a></li>
+                <li><a href="#">CONTACT US</a></li>
+                <li><a href="#">CONNECT</a></li>
+            </ul>
+        </nav>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <script>
+
+            $(function(){
+                $(".toggle").on("click", function(){
+                    if($(".menu").hasClass("active")){
+                        $(".menu").removeClass("active");
+                        $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
+                    } else{
+                        $(".menu").addClass("active");
+                        $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
+                    }
+                })
+            });
+
+        </script>
+
+        <!-- Section 1 -->
+        <section class="home" id="home">
+            <div class="content">
+                <h3>WEB-BASED LEARNING MANAGEMENT SYSTEM</h3>
+                <p>
+                    Quality Education without Boundaries
+                </p>
+                <center><a href="#" class="btn">KNOW MORE <ion-icon name="arrow-forward-outline"></ion-icon></a></center>
+            </div>
+            
+
+        </section>
+
+        <section>
+
+            
+
+        </section>
+
+        <!--- Footer --->
+        <div class="footer-dark">
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-3 item">
+                            <h3>QUICK LINKS</h3>
+                            <ul>
+                                <li><a href="#">HOME</a></li>
+                                <li><a href="#">ABOUT US</a></li>
+                                <li><a href="#">CONTACT US</a></li>
+                                <li><a href="#">CONNECT</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 item text">
+                            <h3>CONTACT US</h3>
+                            <p>For inquiries, you may call us at (63)919-098-0201.</p>
+                        </div>
+                        
+                        <div class="col item social">
+                            <a href="#" target=”_blank”><i class="fa fa-facebook-square" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" target=”_blank”><i class="fa fa-twitter-square"></i></a>                          </a></div>
+                    </div>
+                    <p class="copyright">Copyright ©2023  E-LEARNSTER<br>FOPI01 3Q2223</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+
+
+
+</html>

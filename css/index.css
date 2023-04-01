@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap');
+
+body{
+    margin:0;
+    line-height: 1.5;
+    background-color: #f3f2f1;
+   }
+
+.home{
+    align-items: center;
+    min-height: 100vh;
+    background-image: url("../assets/home1.png");
+    background-repeat: no-repeat;
+    background-size:auto;
+    background-position: center;
+    padding:5em;
+}
+
+
+.home .content h3{
+    text-align: center;
+    font-size: 4rem;
+    font-weight: 800;
+    color:#FCC419;
+    text-shadow: 5px 5px 5px black;
+}
+
+
+.home .content p{
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    color:white;
+    text-shadow: 5px 5px 5px black;
+    padding:1rem 0;
+    line-height: 1.5;
+}
+
+.btn{
+    
+    border-radius: 0rem;
+    background:#FCC419;
+    color:black;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.btn ion-icon{
+    font-size: 20px;
+    align-items:inherit;
+}
+
+.btn:hover{
+    background:white;
+    color: black;
+    
+}
+
+section{
+    padding:30px;
+    text-align:justify;
+}
+
+article h1{
+    font-family: Arial Narrow;
+    font-weight:bold;
+    color: #D42F2F;
+    text-align:center;
+}
+
+article p{
+    font-size:20px;
+}
+
+article h2{
+    margin:40px;
+    font-family: Tahoma;
+}
+
+
+.box {
+    background-color:white;
+    box-shadow: 2px 2px 10px rgb(49, 47, 47);
+    width:31%;
+    display:inline-block;
+    margin:11px;
+    border-radius:6px;
+    overflow:hidden;
+    
+ }
+ 
+ .text {
+    padding:11px 0;
+    color:black;
+    font-weight:bold;
+    text-align:center;
+    flex-wrap: wrap;
+ }
+ 
+ #container {
+    text-align:center;
+    flex-wrap: wrap;
+ }
+
+ .box img{
+     text-align: center;
+     height:60px;
+     margin:10px;
+     
+ }
+
+ .box p{ 
+     margin:10px;
+     color:gray;
+     
+ }
