@@ -15,7 +15,7 @@ body{
     min-height: 100vh;
     background-image: url("../assets/Picture1.png");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: auto;
     background-position:center;
     padding:70px;
 }
@@ -54,7 +54,7 @@ body{
 }
 
 .btn ion-icon{
-    font-size: 20px;
+    font-size: 15px;
     align-items:inherit;
 }
 
@@ -71,9 +71,9 @@ section{
 
 .box {
     height:auto;
-    width:50vh;
+    width:40vh;
     display:inline-block;
-    margin:11px;
+    margin:10px;
     
  }
  
