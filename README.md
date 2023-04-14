@@ -1,6 +1,7 @@
 # IT120P-Project
  <pre>
   PROJECT: Web-based Learning Management System "E-LEARNSTER"
+  DESCRIPTION: As partial fulfillment of the requirements for the course: Application Development and Emerging Technologies (IT120P).
 
   MEMBERS: Abdurahman Azzouni 
            Rosanne Erpelo
