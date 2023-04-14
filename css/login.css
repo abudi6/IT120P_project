@@ -33,7 +33,6 @@
     background-repeat: no-repeat;
     position: relative;
     border-radius:10px 0 0 10px;
-    
 }
 
 .side-logo{
@@ -44,27 +43,35 @@
     top:30px;
     left:30px;
     text-align: center;
-    position:relative;
-    display: flex;
-    align-items: center;
+    padding-top: 50px;
     font-size: 30px;
-    font-weight:800;
+    font-weight: 800;
     color: #FCC419;
     text-decoration: none;
 }
 
-
-
 .side-logo img{
-    width: 60px;
-    margin-right:10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    width: 80px;
+}
+
+.subheading {
+    color: #FCC419;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.5;
 }
 
 .text{
     position:absolute;
     top:50%;
     left:50%;
+    transform: translate(-50%,-50%);
+}
+
+.text p{
+    margin-top: 150px;
+    color:#FCC419;
+    font-size: 20px;
+    font-weight:800;
 }
 
