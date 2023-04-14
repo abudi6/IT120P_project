@@ -7,9 +7,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+        <title>E-LEARNSTER: Web-based Learning Management System</title>
 
         <!-- css file link -->
-        <link rel="stylesheet" href="../css/login.css"/>
+        <link rel="stylesheet" href="../css/login-register.css"/>
 
     </head>
     <body>
@@ -29,6 +30,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 right">
+                        <form>
                         <div class="input-box">
                            <header>WELCOME</header>
                            <div class="input-field">
@@ -47,6 +49,7 @@
                                <span>Forgot your password? <a href="#">Go here</a></span>
                            </div>
                         </div>
+                        </form>
                    </div>
                 </div>
             </div>
