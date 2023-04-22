@@ -97,7 +97,7 @@ session_start();
 		</div>
       <div class="container">
         <div class="announcement">
-			<p class="container_name"><h1>ANNOUNCEMENTS</h1></p>
+			<p class="container_name"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></p>
           	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque nemo quaerat vel iure quam repudiandae tempora velit sed ducimus obcaecati eum hic dignissimos porro, accusantium at corrupti dolor aut non suscipit eveniet cumque quo culpa?
         </div>
 		<div class="sub_container">
