@@ -3,10 +3,10 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "login_db";
+$dbname = "lms_database";
 
 if(!$con = mysqli_connect($dbhost,$dbuser,$dbpass,$dbname))
 {
 
-	die("failed to connect!");
+	die("Failed to connect!");
 }

@@ -9,14 +9,14 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$user_name = $_POST['user_name'];
-		$password = $_POST['password'];
+		$student_email = $_POST['student_email'];
+		$student_password = $_POST['student_password'];
 
-		if(!empty($user_name) && !empty($password) && !is_numeric($user_name))
+		if(!empty($student_email) && !empty($student_password))
 		{
 
 			//read from database
-			$query = "select * from users where user_name = '$user_name' limit 1";
+			$query = "select * from lms_students where student_email = '$student_email' limit 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
@@ -26,22 +26,26 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 					
-					if($user_data['password'] === $password)
+					if($user_data['student_password'] === $student_password)
 					{
 
-						$_SESSION['user_id'] = $user_data['user_id'];
-						header("Location: student-main.php");
+						$_SESSION['student_id'] = $user_data['student_id'];
+						header("Location: student/student_dashboard.php");
 						die;
 					}
 				}
 			}
 			
-			echo "wrong username or password!";
+			function_alert("Please enter your correct email and password!");
 		}else
 		{
-			echo "wrong username or password!";
+			function_alert("Please enter your correct email and password!");
 		}
 	}
+
+    function function_alert($msg) {
+        echo "<script type='text/javascript'>alert('$msg');</script>";
+    }
 
 ?>
 
@@ -55,10 +59,10 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
-        <title>E-LEARNSTER: Web-based Learning Management System</title>
+        <title>E-LEARNSTER: Web-based Learning Management System | Log-in</title>
 
         <!-- css file link -->
-        <link rel="stylesheet" href="../css/login-register.css"/>
+        <link rel="stylesheet" href="../css/login_register.css"/>
 
     </head>
     <body>
@@ -74,7 +78,7 @@ session_start();
                         
                         <div class="text">
                             <p>New Student?</p>
-                            <center><a href="#" class="btn">ENROLL NOW</a></center>
+                            <center><a href="signup.php" class="btn">ENROLL NOW</a></center>
                         </div>
                     </div>
                     <div class="col-md-6 right">
@@ -82,11 +86,11 @@ session_start();
                             <div class="input-box">
                             <header>WELCOME</header>
                             <div class="input-field">
-                                <input type="text" class="input" id="text" name="user_name" required autocomplete="off">
+                                <input type="text" class="input" id="text" name="student_email" required autocomplete="off">
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" class="input" id="password" name="password" required>
+                                <input type="password" class="input" id="password" name="student_password" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field">
