@@ -98,17 +98,15 @@ session_start();
       <div class="container">
         <div class="announcement">
 			<p class="container_name"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></p>
-          	Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque nemo quaerat vel iure quam repudiandae tempora velit sed ducimus obcaecati eum hic dignissimos porro, accusantium at corrupti dolor aut non suscipit eveniet cumque quo culpa?
+          	<div></div>
         </div>
 		<div class="sub_container">
 			<div class="current_classes">
-			<p class="container_name"><h1>CURRENT CLASSES</h1></p>
-			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque nemo quaerat vel iure quam repudiandae tempora velit sed ducimus obcaecati eum hic dignissimos porro, accusantium at corrupti dolor aut non suscipit eveniet cumque quo culpa?
+				<p class="container_name"><h1>CURRENT CLASSES  <i class="fa-solid fa-book-open"></i></h1></p>
 			</div>
 			<div>
 				<div class="due_dates">
-				<p class="container_name"><h1>UPCOMING DUES</h1></p>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque nemo quaerat vel iure quam repudiandae tempora velit sed ducimus obcaecati eum hic dignissimos porro, accusantium at corrupti dolor aut non suscipit eveniet cumque quo culpa?
+					<p class="container_name"><h1>UPCOMING DUES  <i class="fa-regular fa-calendar"></i></h1></p>
 				</div>
 			</div>
 		</div>

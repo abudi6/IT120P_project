@@ -9,14 +9,14 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$student_email = $_POST['student_email'];
-		$student_password = $_POST['student_password'];
+		$email = $_POST['student_email'];
+		$password = $_POST['student_password'];
 
-		if(!empty($student_email) && !empty($student_password))
+		if(!empty($email) && !empty($password))
 		{
 
 			//read from database
-			$query = "select * from lms_students where student_email = '$student_email' limit 1";
+			$query = "select * from students where student_email = '$email' limit 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
@@ -26,7 +26,7 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 					
-					if($user_data['student_password'] === $student_password)
+					if($user_data['student_password'] === $password)
 					{
 
 						$_SESSION['student_id'] = $user_data['student_id'];
@@ -36,10 +36,10 @@ session_start();
 				}
 			}
 			
-			function_alert("Please enter your correct email and password!");
+			header("Location: login.php?error=Incorrect User name or password!");
 		}else
 		{
-			function_alert("Please enter your correct email and password!");
+			header("Location: login.php?error=Incorrect User name or password!");
 		}
 	}
 
@@ -85,12 +85,17 @@ session_start();
                         <form method="post">
                             <div class="input-box">
                             <header>WELCOME</header>
+                            <?php if (isset($_GET['error'])) { ?>
+
+                            <p class="error"><?php echo $_GET['error']; ?></p>
+
+                            <?php } ?>
                             <div class="input-field">
-                                <input type="text" class="input" id="text" name="student_email" required autocomplete="off">
+                                <input type="text" class="input" name="email" required autocomplete="off">
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" class="input" id="password" name="student_password" required>
+                                <input type="password" class="input" name="password" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field">
