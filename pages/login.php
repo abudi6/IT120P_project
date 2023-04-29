@@ -9,14 +9,14 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$email = $_POST['student_email'];
-		$password = $_POST['student_password'];
+		$email = $_POST['studentEmail'];
+		$password = $_POST['studentPassword'];
 
 		if(!empty($email) && !empty($password))
 		{
 
 			//read from database
-			$query = "select * from students where student_email = '$email' limit 1";
+			$query = "select * from students where studentEmail = '$email' limit 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
@@ -26,10 +26,10 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 					
-					if($user_data['student_password'] === $password)
+					if($user_data['studentPassword'] === $password)
 					{
 
-						$_SESSION['student_id'] = $user_data['student_id'];
+						$_SESSION['studentID'] = $user_data['studentID'];
 						header("Location: student/student_dashboard.php");
 						die;
 					}
@@ -42,11 +42,6 @@ session_start();
 			header("Location: login.php?error=Incorrect User name or password!");
 		}
 	}
-
-    function function_alert($msg) {
-        echo "<script type='text/javascript'>alert('$msg');</script>";
-    }
-
 ?>
 
 

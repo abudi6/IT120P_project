@@ -8,16 +8,16 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$student_name = $_POST['student_name'];
-        $student_email = $_POST['student_email'];
-		$student_password = $_POST['student_password'];
+		$name = $_POST['studentName'];
+        $email = $_POST['studentEmail'];
+        $password = $_POST['studentPassword'];
 
-		if(!empty($student_name) && !empty($student_password) && !is_numeric($student_name) && filter_var($student_email, FILTER_VALIDATE_EMAIL))
+		if(!empty($name) && !empty($password) && !is_numeric($name) && filter_var($email, FILTER_VALIDATE_EMAIL))
 		{
-
+            
 			//save to database
 			$student_id = random_num(20);
-			$query = "insert into lms_students (student_id,student_email,student_name,student_password) values ('$student_id','$student_email','$student_name','$student_password')";
+			$query = "insert into students (studentID,studentEmail,studentName,studentPassword) values ('$student_id','$email','$name','$password')";
 
 			mysqli_query($con, $query);
 
@@ -67,15 +67,15 @@ session_start();
                             <div class="input-box">
                             <header>ENROLL</header>
                             <div class="input-field">
-                                <input type="text" class="input" id="text" name="student_name" required autocomplete="off">
+                                <input type="text" class="input" id="text" name="name" required autocomplete="off">
                                 <label for="email">Full Name</label>
                             </div>
                             <div class="input-field">
-                                <input type="text" class="input" id="text" name="student_email" required autocomplete="off">
+                                <input type="text" class="input" id="text" name="email" required autocomplete="off">
                                 <label for="email">Email Address</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" class="input" id="password" name="student_password" required>
+                                <input type="password" class="input" id="password" name="password" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field">
