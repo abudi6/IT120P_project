@@ -29,7 +29,6 @@ session_start();
 
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
-    <link rel="stylesheet" href="../../css/content_add.css"/>
 </head>
 <body>
 
@@ -56,16 +55,16 @@ session_start();
             </div>
         </div>
         <ul class="siderbar_menu">
-            <li><a href="admin_dashboard.php" class="active">
+            <li><a href="admin_dashboard.php" >
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="profile.php">
+          <li><a href="profile.php" class="active">
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
 		  <li><a href="user_management.php" >
-              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
               
               </a></li>  
 		  <li><a href="content_management.php">
@@ -90,55 +89,45 @@ session_start();
 				<img class="logo_img" src="../../assets/icons/logo2.png"><b>E-LEARNSTER</b>
          	</ul>
 		</div>
-      <div class="container">
-        <div class="announcement">
-			<p class="container_name"><a style="color:black;" href="announcements.php"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></a></p>
-            <div class="item">
-                <h3 style="color:blue;">
-                    <?php 
-                    $query = "SELECT * FROM announcements ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($con, $query); 
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['title']; 
-                    ?>
-                </h3> 
-                    <?php
-                    echo $data['description'];
-                    ?>        
-                    <h4 style="color:black; text-align:right;">
-                        <?php echo $data['dateCreated'];?>
-                    </h4>        
+      
+        <div class="container">
+
+            <div class="profile">
+                <div align=center>
+                    <h1>EDIT PROFILE</h1>
+                    <?php if ($user_data) { ?>
+                    <form action="update.php" method="post" enctype="multipart/form-data">
+                            <div class="input-box">
+                                <div class="input-field">
+                                    <input type="text" class="input" name="employeeName">
+                                    <label for="name">Name</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="input" name="employeeEmail">
+                                    <label for="email">Email</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="password" class="input" name="employeePassword">
+                                    <label for="password">Password</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="file" 
+                                        class="form-control"
+                                        name="pp">
+                                </div>
+                                <div class="input-field">
+                                    <input type="submit" class="submit" name="submit" value="UPDATE">
+                                    
+                                </div>
+                            </div>
+                    </form>
+                    <?php }?>
+                </div>
+                   
 
             </div>
+
         </div>
-		<div class="sub_container">
-			<div class="container1">
-				<p class="container_name"><h1>TOTAL STUDENTS ENROLLED  <i class="fa-solid fa-users"></i></h1></p>
-                <p class="container_body">
-                    <?php 
-                    $query = "select * from students";
-                    $result = mysqli_query($con, $query); 
-                    $rowcount=mysqli_num_rows($result)-1;
-                    echo $rowcount;
-                    ?>
-                </p>
-			</div>
-			<div>
-				<div class="container2">
-					<p class="container_name"><h1>TOTAL COURSES AVAILABLE  <i class="fa-solid fa-book"></i></h1></p>
-                    <p class="container_body">
-                        <?php 
-                        $query = "select * from courses";
-                        $result = mysqli_query($con, $query); 
-                        $rowcount=mysqli_num_rows($result);
-                        echo $rowcount;
-                        ?>                   
-                    </p>    
-				</div>
-			</div>
-		</div>
-      </div>
-      
     </div>
 </div>
 </body>

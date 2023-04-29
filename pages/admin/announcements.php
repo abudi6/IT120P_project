@@ -29,7 +29,6 @@ session_start();
 
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
-    <link rel="stylesheet" href="../../css/content_add.css"/>
 </head>
 <body>
 
@@ -65,7 +64,7 @@ session_start();
               
               </a></li>  
 		  <li><a href="user_management.php" >
-              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
               
               </a></li>  
 		  <li><a href="content_management.php">
