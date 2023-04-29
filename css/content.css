@@ -128,7 +128,7 @@ hr {
   }
 
 .wrapper .sidebar__inner .siderbar_menu li a .icon {
-    font-size: 20px;
+    font-size: 17px;
     margin-bottom: 5px;
   }
 
@@ -245,11 +245,11 @@ hr {
 
 .wrapper .main_container .container {
   padding: 20px;
-  margin-top: 0px;
+  margin-top: -20px;
 }
 
 .wrapper .main_container .container .announcement {
-  background: #FFA5A5;
+  background: #fff;
   padding: 20px;
   border-bottom: 1px solid #0E1B33;
   font-size: 14px;
@@ -257,31 +257,38 @@ hr {
 }
 
 
-.current_classes {
-  background: #E7F8D3;
+.container1 {
+  background: #fae371;
   padding: 20px;
-  width:39%;
+  width:49%;
   font-size: 14px;
   margin-bottom: 15px;
   float:left;
 }
 
-.due_dates {
-  background: #E1B7EB;
+.container2 {
+  background: #fae371;
   padding: 20px;
-  width:59%;
+  width:49%;
   font-size: 14px;
   margin-bottom: 15px;
   float: right;
 }
 
+.container_body {
+  color:#4f934f;
+  font-weight: 100;
+  font-size:xx-large;
+
+}
+
 .wrapper .main_container .container .item {
   background: #fff;
   padding: 20px;
-  border-bottom: 1px solid #d9e2e7;
   font-size: 14px;
   line-height: 22px;
   margin-bottom: 15px;
+  margin-top:10px;
 }
 
 .wrapper .sidebar__inner .close{

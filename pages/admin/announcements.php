@@ -4,7 +4,7 @@ session_start();
 	include("../connection.php");
 	include("../functions.php");
 
-	$user_data = check_login($con);
+	$user_data = check_login_admin($con);
 
 ?>
 
@@ -25,10 +25,11 @@ session_start();
 			})
     	})
     </script>
-	<title>E-LEARNSTER: Web-based Learning Management System | Student Dashboard</title>
+	<title>E-LEARNSTER: Web-based Learning Management System | Admin Dashboard</title>
 
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
+    <link rel="stylesheet" href="../../css/content_add.css"/>
 </head>
 <body>
 
@@ -47,28 +48,28 @@ session_start();
 		<hr class="solid">
         <div class="profile_info">
             <div class="profile_img">
-			<img src="../../assets/profile_images/<?php echo $user_data['studentProfilePicture']; ?>">
+			<img src="../../assets/profile_images/<?php echo $user_data['employeeProfilePicture']; ?>">
             </div>
             <div class="profile_data">
-                <p class="name"><?php echo $user_data['studentName']; ?></p>  
-                <p class="role"><?php echo $user_data['studentYear']; ?></p>
+                <p class="name"><?php echo $user_data['employeeName']; ?></p>  
+                <p class="role"><?php echo $user_data['employeeTitle']; ?></p>
             </div>
         </div>
         <ul class="siderbar_menu">
-            <li><a href="#" class="active">
+            <li><a href="admin_dashboard.php" class="active">
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="#">
+          <li><a href="profile.php">
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
-		  <li><a href="#" >
-              <div class="icon"><i class="fa-sharp fa-solid fa-book"></i>  Courses</div>
+		  <li><a href="user_management.php" >
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
               
               </a></li>  
-		  <li><a href="#">
-              <div class="icon"><i class="fa-solid fa-check-double"></i>  Grades</div>
+		  <li><a href="content_management.php">
+              <div class="icon"><i class="fa-solid fa-file-pen"></i>  Manage Content</div>
               
               </a></li>  
           <li><a href="logout.php">
@@ -89,23 +90,21 @@ session_start();
 				<img class="logo_img" src="../../assets/icons/logo2.png"><b>E-LEARNSTER</b>
          	</ul>
 		</div>
-      <div class="container">
-        <div class="announcement">
-			<p class="container_name"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></p>
-          	<div></div>
-        </div>
-		<div class="sub_container">
-			<div class="container1">
-				<p class="container_name"><h1>CURRENT COURSES  <i class="fa-solid fa-book-open"></i></h1></p>
-			</div>
-			<div>
-				<div class="container2">
-					<p class="container_name"><h1>UPCOMING DEADLINES  <i class="fa-regular fa-calendar"></i></h1></p>
-				</div>
-			</div>
-		</div>
-      </div>
       
+        <div class="container">
+
+            <?php
+            $query = "SELECT * FROM announcements ORDER BY id DESC";
+            $result = mysqli_query($con, $query); 
+            while($temp = mysqli_fetch_array($result)){
+                echo "<div class='item'>";
+                echo "<h3>".$temp['title']."</h3>";
+                echo $temp['description'];
+                echo "<h4 style='color:black; text-align:right;'>".$temp['dateCreated']."</h4>";
+                echo "</div>";
+            }
+            ?>
+      </div>
     </div>
 </div>
 </body>

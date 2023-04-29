@@ -3,11 +3,11 @@
 function check_login($con)
 {
 
-	if(isset($_SESSION['student_id']))
+	if(isset($_SESSION['studentID']))
 	{
 
-		$id = $_SESSION['student_id'];
-		$query = "select * from lms_students where student_id = '$id' limit 1";
+		$id = $_SESSION['studentID'];
+		$query = "select * from students where studentID = '$id' limit 1";
 
 		$result = mysqli_query($con,$query);
 		if($result && mysqli_num_rows($result) > 0)
@@ -23,6 +23,31 @@ function check_login($con)
 	die;
 
 }
+
+function check_login_admin($con)
+{
+
+	if(isset($_SESSION['employeeID']))
+	{
+
+		$id = $_SESSION['employeeID'];
+		$query = "select * from employees where employeeID = '$id' limit 1";
+
+		$result = mysqli_query($con,$query);
+		if($result && mysqli_num_rows($result) > 0)
+		{
+
+			$user_data = mysqli_fetch_assoc($result);
+			return $user_data;
+		}
+	}
+
+	//redirect to login
+	header("Location: login_admin.php");
+	die;
+
+}
+
 
 function random_num($length)
 {

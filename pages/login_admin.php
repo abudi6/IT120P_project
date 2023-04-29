@@ -9,14 +9,14 @@ session_start();
 	if($_SERVER['REQUEST_METHOD'] == "POST")
 	{
 		//something was posted
-		$studentEmail = $_POST['studentEmail'];
-		$studentPassword = $_POST['studentPassword'];
+		$employeeEmail = $_POST['employeeEmail'];
+		$employeePassword = $_POST['employeePassword'];
 
-		if(!empty($studentEmail) && !empty($studentPassword))
+		if(!empty($employeeEmail) && !empty($employeePassword))
 		{
 
 			//read from database
-			$query = "select * from students where studentEmail = '$studentEmail' limit 1";
+			$query = "select * from employees where employeeEmail = '$employeeEmail' limit 1";
 			$result = mysqli_query($con, $query);
 
 			if($result)
@@ -26,17 +26,17 @@ session_start();
 
 					$user_data = mysqli_fetch_assoc($result);
 					
-					if($user_data['studentPassword'] === $studentPassword)
+					if($user_data['employeePassword'] === $employeePassword)
 					{
 
-						$_SESSION['studentID'] = $user_data['studentID'];
-						header("Location: student/student_dashboard.php");
+						$_SESSION['employeeID'] = $user_data['employeeID'];
+						header("Location: admin/admin_dashboard.php");
 						die;
 					}
 				}
 			}
 			
-			header("Location: login.php?error=Incorrect Email or password!");
+			header("Location: login_admin.php?error=Incorrect Email or password!");
 		}
 	}
 ?>
@@ -69,8 +69,8 @@ session_start();
                         <p class="subheading">Quality Education without Boundaries</p>
                         
                         <div class="text">
-                            <p>New Student?</p>
-                            <center><a href="signup.php" class="btn">ENROLL NOW</a></center>
+                            <p>Are you a student?</p>
+                            <center><a href="login.php" class="btn">CONNECT HERE</a></center>
                         </div>
                     </div>
                     <div class="col-md-6 right">
@@ -83,11 +83,11 @@ session_start();
 
                             <?php } ?>
                             <div class="input-field">
-                                <input type="text" class="input" name="studentEmail" required autocomplete="off">
+                                <input type="text" class="input" name="employeeEmail" required autocomplete="off">
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field">
-                                <input type="password" class="input" name="studentPassword" required>
+                                <input type="password" class="input" name="employeePassword" required>
                                 <label for="password">Password</label>
                             </div>
                             <div class="input-field">

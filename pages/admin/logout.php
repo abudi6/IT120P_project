@@ -2,9 +2,9 @@
 
 session_start();
 
-if(isset($_SESSION['studentID']))
+if(isset($_SESSION['employeeID']))
 {
-	unset($_SESSION['studentID']);
+	unset($_SESSION['employeeID']);
 
 }
 
