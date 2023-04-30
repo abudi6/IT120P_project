@@ -96,9 +96,9 @@ session_start();
       
         <div class="container">
 
-            <div class="profile">
+            <div class="contentbody">
                 <div align=center>
-                    <h1>EDIT PROFILE</h1>
+                    <h1>USER PROFILE</h1>
                     <?php if ($user_data) { ?>
                     <form action="update.php" method="post" enctype="multipart/form-data">
                             <div class="input-box">
@@ -113,15 +113,6 @@ session_start();
                                 <div class="input-field">
                                     <input type="password" class="input" name="employeePassword">
                                     <label for="password">Password</label>
-                                </div>
-                                <div class="input-field">
-                                    <input type="file" 
-                                        class="form-control"
-                                        name="pp">
-                                </div>
-                                <div class="input-field">
-                                    <input type="submit" class="submit" name="submit" value="UPDATE">
-                                    
                                 </div>
                             </div>
                     </form>
