@@ -71,6 +71,10 @@ session_start();
               <div class="icon"><i class="fa-solid fa-file-pen"></i>  Manage Content</div>
               
               </a></li>  
+          <li><a href="messaging.php">
+              <div class="icon"><i class="fa-solid fa-envelope"></i>  Messaging</div>
+              
+              </a></li>
           <li><a href="logout.php">
               <div class="icon"><i class="fa-solid fa-right-from-bracket"></i>  Logout</div>
               

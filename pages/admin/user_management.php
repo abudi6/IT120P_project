@@ -72,6 +72,10 @@ session_start();
               <div class="icon"><i class="fa-solid fa-file-pen"></i>  Manage Content</div>
               
               </a></li>  
+          <li><a href="messaging.php">
+              <div class="icon"><i class="fa-solid fa-envelope"></i>  Messaging</div>
+              
+              </a></li>  
           <li><a href="logout.php">
               <div class="icon"><i class="fa-solid fa-right-from-bracket"></i>  Logout</div>
               
@@ -92,7 +96,7 @@ session_start();
 		</div>
       
         <div class="container">
-            <div class="profile">
+            <div class="contentbody">
 
             <h2>All Students</h2>
                 <table class="table ">
@@ -103,6 +107,7 @@ session_start();
                         <th class="text-center">Email</th>
                         <th class="text-center">Contact Number</th>
                         <th class="text-center">Gender</th>
+                        <th class="text-center">Address</th>
                         <th class="text-center">Joining Date</th>
                     </tr>
                     </thead>
@@ -122,6 +127,7 @@ session_start();
                     <td><?=$row["studentEmail"]?></td>
                     <td><?=$row["studentPhone"]?></td>
                     <td><?=$row["studentGender"]?></td>
+                    <td><?=$row["studentAddress"]?></td>
                     <td><?=$row["dateCreated"]?></td>
                     </tr>
                     <?php
@@ -131,7 +137,8 @@ session_start();
                     }
                     ?>
                 </table>
-                <a href="#" class="myButton">twitter</a>
+                <a href="#" class="myButton">ADD STUDENT</a>
+                <a href="#" class="myButton">EDIT STUDENT</a>
             </div>
             
         </div>
