@@ -1,20 +1,18 @@
 # IT120P-Project
- <pre>
-  PROJECT: Web-based Learning Management System "E-LEARNSTER"
-  As partial fulfillment of the requirements for the course: Application Development and Emerging Technologies (IT120P). The proposed web-based learning management system (LMS) is an online platform intended to facilitate learning processes by supporting administration, monitoring, and delivery of educational courses. It is designed with a user-centered approach, prioritizing ease of use and intuitive navigation for both students and facilitators. 
 
- PROJECT TEAM:  Abdurahman Azzouni 
-                Rosanne Erpelo
-                Joshua Sam Picato 
-                Justin George Talavera 
-                Andrea May Pineda 
+  <h2>PROJECT: Web-based Learning Management System "E-LEARNSTER"</h2>
+  <p>As partial fulfillment of the requirements for the course: Application Development and Emerging Technologies (IT120P). The proposed web-based learning management system (LMS) is an online platform intended to facilitate learning processes by supporting administration, monitoring, and delivery of educational courses. It is designed with a user-centered approach, prioritizing ease of use and intuitive navigation for both students and facilitators. </p>
 
- </pre>
+ <h3>PROJECT TEAM:</h3>
+ <ul>
+    <li>Abdurahman Azzouni </li>
+    <li>Rosanne Erpelo</li>
+    <li>Joshua Sam Picato</li>
+    <li>Justin George Talavera</li>
+    <li>Andrea May Pineda</li>
+ </ul>  
 
- <html>
-
-<body>
-    <h3>How To Run This Project?</h3>
+<h3>How To Run This Project?</h3>
     <ol>
     <li>Install XAMPP. Found here:( https://www.apachefriends.org/ )</li>
     <li>Download the ZIP file found in the github</li>
@@ -27,6 +25,4 @@
     <li>After creating the database open the following URL (localhost/IT120P-Project-main)</li>
     <li>and  most importantly, GIVE US THE FULL GRADE</li>
     </ol>
-</body>
 
- </html>
