@@ -27,6 +27,7 @@ session_start();
     </script>
 	<title>E-LEARNSTER: Web-based Learning Management System | Admin Dashboard</title>
 
+
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
 </head>
@@ -130,8 +131,9 @@ session_start();
                     }
                     ?>
                 </table>
+                <a href="#" class="myButton">twitter</a>
             </div>
-
+            
         </div>
     </div>
 </div>

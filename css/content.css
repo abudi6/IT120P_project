@@ -299,7 +299,7 @@ hr {
   border-bottom: 10px solid #FCC419;
 }
 
-.profile {
+.contentbody {
   background: #fff;
   padding: 20px;
   font-size: 14px;
@@ -419,7 +419,26 @@ tr:nth-child(even) {
   background-color: #eeeeee;
 }
 
+.cta{
+    
+  border-radius: 0rem;
+  background:#FCC419;
+  color:black;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 5px 5px 5px black;
+}
 
+.cta ion-icon{
+  font-size: 15px;
+  align-items:inherit;
+}
+
+.cta:hover{
+  background:white;
+  color: black;
+  
+}
 
 @media screen and (max-width: 800px){
   .wrapper .sidebar__inner{

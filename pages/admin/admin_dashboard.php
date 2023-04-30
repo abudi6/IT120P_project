@@ -94,7 +94,7 @@ session_start();
         <div class="announcement">
 			<p class="container_name"><a style="color:black;" href="announcements.php"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></a></p>
             <div class="item">
-                <h3 style="color:blue;">
+                <h3> 
                     <?php 
                     $query = "SELECT * FROM announcements ORDER BY id DESC LIMIT 1";
                     $result = mysqli_query($con, $query); 
