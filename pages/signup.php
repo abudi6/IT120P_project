@@ -73,11 +73,15 @@ session_start();
                             <?php } ?>
                             <div class="input-field">
                                 <input type="text" class="input" id="text" name="studentName" required autocomplete="off">
-                                <label for="email">Full Name</label>
+                                <label for="name">Full Name</label>
                             </div>
                             <div class="input-field">
                                 <input type="text" class="input" id="text" name="studentEmail" required autocomplete="off">
                                 <label for="email">Email Address</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="studentPhone" required autocomplete="off">
+                                <label for="phone">Contact Number</label>
                             </div>
                             <div class="input-field">
                                 <input type="password" class="input" id="password" name="studentPassword" required>
