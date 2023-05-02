@@ -94,9 +94,7 @@ session_start();
                                 <input type="submit" class="submit" value="SIGN IN">
                                 
                             </div>
-                            <div class="signin">
-                                <span>Forgot your password? <a href="#">Go here</a></span><br>
-                            </div>
+                            
                             </div>
                         </form>
                    </div>

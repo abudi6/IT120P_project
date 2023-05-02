@@ -95,7 +95,7 @@ session_start();
                                 
                             </div>
                             <div class="signin">
-                                <span>Forgot your password? <a href="#">Go here</a></span><br>
+                                <span>Logging in as admin? <a href="login_admin.php">Go here</a></span><br>
                             </div>
                             </div>
                         </form>

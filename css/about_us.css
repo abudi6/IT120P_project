@@ -13,15 +13,18 @@ body{
 .home{
     align-items: center;
     min-height: 100vh;
-    background-image: url("../assets/Picture1.png");
+    background-color: #1D335E;
     background-repeat: no-repeat;
     background-size: auto;
     background-position:center;
-    padding:70px;
+    padding:20px;
 }
 
 .home .content{
     padding-bottom: 20px;
+    margin-left:100px;
+    margin-right:100px;
+    line-height: 20px;
 }
 
 .home .content h3{
@@ -36,7 +39,7 @@ body{
 .home .content p{
     align-items: center;
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
     color:white;
     text-shadow: 5px 5px 5px black;
     padding:1rem 0;

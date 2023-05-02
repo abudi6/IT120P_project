@@ -1,3 +1,24 @@
+<?php
+
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $to = "pinedaandreamaym@gmail.com"; // Replace with your email address
+    $subject = $_POST['subject'];
+    
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    
+    // Send email
+    if(mail($to, $subject, $body)) {
+        echo "Thank you for contacting us!";
+    } else {
+        echo "Oops! Something went wrong. Please try again.";
+    }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,24 +37,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
         <!--css file link-->
-        <link rel="stylesheet" href="css/navbar_footer.css" />
-        <link rel="stylesheet" href="css/index.css" />
+        <link rel="stylesheet" href="../css/navbar_footer.css" />
+        <link rel="stylesheet" href="../css/contact_us.css" />
 
     </head>
     <body>
         <!-- Navigation bar -->
         <nav>
             <div class="logo">
-                <a href="#"><img src="assets/icons/logo.png" alt="logo">E-LEARNSTER</a>
+                <a href="#"><img src="../assets/icons/logo.png" alt="logo">E-LEARNSTER</a>
             </div>
             <div class="toggle">
                 <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
             </div>
             <ul class="menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="pages/about_us.php">ABOUT US</a></li>
-                <li><a href="pages/contact_us.php">CONTACT US</a></li>
-                <li><a href="pages/login.php">CONNECT</a></li>
+                <li><a href="../index.html">HOME</a></li>
+                <li><a href="about_us.php">ABOUT US</a></li>
+                <li><a href="contact_us.php">CONTACT US</a></li>
+                <li><a href="login.php">CONNECT</a></li>
             </ul>
         </nav>
 
@@ -57,36 +78,44 @@
 
         <!-- Section 1 -->
         <section class="home" id="home">
-            <div class="content">
-                <h3>WEB-BASED LEARNING MANAGEMENT SYSTEM</h3>
-                <p>
-                    Quality Education without Boundaries
-                </p>
-                <center><a href="pages/about_us.php" class="btn">KNOW MORE <ion-icon name="arrow-forward-sharp"></ion-icon></a></center>
-            </div>
-
-            <div id="container"> 
-                <div class="box"> 
-                    <div class="text">
-                      <img src="assets/icons/feature1.png">
-                      <article><h2>Self-paced</h2></article>
-                       <p>Provides learners with the flexibility to learn at their own pace and on their own schedule, provided there is stable internet connection.</p>
+            <div class="container_form">
+            <div class="text">Contact us Form</div>
+                <form method="post">
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" name="name" required>
+                        <div class="underline"></div>
+                        <label for="">Full Name</label>
                     </div>
                 </div>
-                <div class="box"> 
-                    <div class="text">
-                      <img src="assets/icons/feature2.png">
-                      <article><h2>Affordability</h2></article>
-                       <p>More affordable than traditional classroom-based learning, due to lower infrastructure and operating costs.</p>
+                <div class="form-row">
+                    <div class="input-data">
+                        <input type="text" name="email" required>
+                        <div class="underline"></div>
+                        <label for="">Email Address</label>
+                    </div>
+                    <div class="input-data">
+                        <input type="text" name="subject" required>
+                        <div class="underline"></div>
+                        <label for="">Subject Title</label>
                     </div>
                 </div>
-                <div class="box"> 
-                    <div class="text">
-                      <img src="assets/icons/feature3.png">
-                      <article><h2>Learning Materials</h2></article>
-                       <p>Gain access to a wealth of resources through our online library, discussion forums, and multimedia content.</p>
+                <div class="form-row">
+                    <div class="input-data textarea">
+                        <textarea rows="8" cols="80" name="message" required></textarea>
+                        <br />
+                        <div class="underline"></div>
+                        <label for="">Write your message</label>
+                        <br />
+                        <div class="form-row submit-btn">
+                            <div class="input-data">
+                            <div class="inner"></div>
+                            <input type="submit" name="submit" value="submit">
+                            </div>
+                        </div>
                     </div>
                 </div>
+                </form>
             </div>
 
         </section>
@@ -99,10 +128,10 @@
                         <div class="col-sm-6 col-md-3 item">
                             <h3>QUICK LINKS</h3>
                             <ul>
-                                <li><a href="index.html">HOME</a></li>
-                                <li><a href="pages/about_us.php">ABOUT US</a></li>
-                                <li><a href="pages/contact_us.php">CONTACT US</a></li>
-                                <li><a href="pages/login.php">CONNECT</a></li>
+                                <li><a href="../index.html">HOME</a></li>
+                                <li><a href="about_us.php">ABOUT US</a></li>
+                                <li><a href="contact_us.php">CONTACT US</a></li>
+                                <li><a href="login.php">CONNECT</a></li>
                             </ul>
                         </div>
                         <div class="col-md-6 item item">
