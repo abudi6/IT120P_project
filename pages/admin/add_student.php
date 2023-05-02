@@ -5,7 +5,31 @@ session_start();
 	include("../functions.php");
 
 	$user_data = check_login_admin($con);
+    $user_id = $user_data['id'];
 
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$studentName = $_POST['studentName'];
+        $studentEmail = $_POST['studentEmail'];
+        $studentPassword = $_POST['studentPassword'];
+
+		if(!empty($studentName) && !empty($studentPassword) && !is_numeric($studentName) && filter_var($studentEmail, FILTER_VALIDATE_EMAIL))
+		{
+            
+			//save to database
+			$student_id = random_num(10);
+			$query = "insert into students (studentID,studentEmail,studentName,studentPassword) values ('$student_id','$studentEmail','$studentName','$studentPassword')";
+
+			mysqli_query($con, $query);
+
+			header("Location: admin_dashboard.php");
+			die;
+		}else
+		{
+			header("Location: user_management.php?error=Invalid Input!");
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +50,6 @@ session_start();
     	})
     </script>
 	<title>E-LEARNSTER: Web-based Learning Management System | Admin Dashboard</title>
-
 
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
@@ -60,12 +83,12 @@ session_start();
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="profile.php">
+          <li><a href="profile.php" class="active">
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
-		  <li><a href="user_management.php" class="active">
-              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
+		  <li><a href="user_management.php" >
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
               
               </a></li>  
 		  <li><a href="content_management.php">
@@ -75,7 +98,7 @@ session_start();
           <li><a href="messaging.php">
               <div class="icon"><i class="fa-solid fa-envelope"></i>  Messaging</div>
               
-              </a></li>  
+              </a></li>
           <li><a href="logout.php">
               <div class="icon"><i class="fa-solid fa-right-from-bracket"></i>  Logout</div>
               
@@ -96,51 +119,41 @@ session_start();
 		</div>
       
         <div class="container">
-            <div class="contentbody">
 
-            <h2>All Students</h2>
-                <table class="table ">
-                    <thead>
-                    <tr>
-                        <th class="text-center">ID </th>
-                        <th class="text-center">Name </th>
-                        <th class="text-center">Email</th>
-                        <th class="text-center">Contact Number</th>
-                        <th class="text-center">Gender</th>
-                        <th class="text-center">Address</th>
-                        <th class="text-center">Joining Date</th>
-                    </tr>
-                    </thead>
-                    <?php
-                    include_once "../connection.php";
-                    $query="SELECT * from students";
-                    $result = mysqli_query($con, $query); 
-                    $data = mysqli_fetch_assoc($result);
-                    $count=1;
-                    if ($result-> num_rows > 0){
-                        while ($row=$result-> fetch_assoc()) {
-                        
-                    ?>
-                    <tr>
-                    <td><?=$count?></td>
-                    <td><?=$row["studentName"]?></td>
-                    <td><?=$row["studentEmail"]?></td>
-                    <td><?=$row["studentPhone"]?></td>
-                    <td><?=$row["studentGender"]?></td>
-                    <td><?=$row["studentAddress"]?></td>
-                    <td><?=$row["dateCreated"]?></td>
-                    </tr>
-                    <?php
-                            $count=$count+1;
-                        
-                        }
-                    }
-                    ?>
-                </table>
-                <a href="add_student.php" class="myButton">ADD STUDENT</a>
-                <a href="update_student.php" class="myButton">EDIT STUDENT</a>
+            <div class="contentbody">
+                <div align=center>
+                    <h1>ADD STUDENT</h1>
+                    <?php if ($user_data) { ?>
+                    <form method="post" enctype="multipart/form-data">
+                            <div class="input-box">
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="studentName" required autocomplete="off">
+                                <label for="name">Full Name</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="studentEmail" required autocomplete="off">
+                                <label for="email">Email Address</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="studentPhone" required autocomplete="off">
+                                <label for="phone">Contact Number</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="password" class="input" id="password" name="studentPassword" required>
+                                <label for="password">Password</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="submit" class="submit" value="ADD">
+                                
+                            </div>
+                            </div>
+                    </form>
+                    <?php }?>
+                </div>
+                   
+
             </div>
-            
+
         </div>
     </div>
 </div>
