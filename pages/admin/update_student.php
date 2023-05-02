@@ -5,16 +5,21 @@ session_start();
 	include("../functions.php");
 
 	$user_data = check_login_admin($con);
-    $user_id = $user_data['id'];
+    
+
     if(isset($_POST['submit'])) {
-        $employeeName = $_POST['employeeName'];
-        $employeeEmail = $_POST['employeeEmail'];
-        $employeePassword = $_POST['employeePassword'];
-        $employeePhone = $_POST['employeePhone'];
-        $employeeAddress = $_POST['employeeAddress'];
+        $studentName = $_POST['studentName'];
+        $studentEmail = $_POST['studentEmail'];
+        $studentPassword = $_POST['studentPassword'];
+        $studentPhone = $_POST['studentPhone'];
+        $studentAddress = $_POST['studentAddress'];
+        
+        $sql = "SELECT * FROM students WHERE studentEmail = '$studentEmail'";
+        $result = mysqli_query($con, $sql);
+        $row = mysqli_fetch_assoc($result);
         
         // Update user information in database
-        $sql = "UPDATE employees SET employeeName = '$employeeName', employeeEmail = '$employeeEmail', employeePassword = '$employeePassword', employeePhone = '$employeePhone', employeeAddress = '$employeeAddress' WHERE id = '$user_id'";
+        $sql = "UPDATE students SET studentName = '$studentName', studentEmail = '$studentEmail', studentPassword = '$studentPassword', studentPhone = '$studentPhone', studentAddress = '$studentAddress' WHERE studentEmail = '$studentEmail'";
         if(mysqli_query($con, $sql)) {
             header("Location: admin_dashboard.php");
         } else {
@@ -22,9 +27,7 @@ session_start();
         }
     }
     
-    $sql = "SELECT * FROM employees WHERE id = '$user_id'";
-    $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_assoc($result);
+    
 
 ?>
 
@@ -79,12 +82,12 @@ session_start();
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="profile.php" class="active">
+          <li><a href="profile.php" >
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
-		  <li><a href="user_management.php" >
-              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
+		  <li><a href="user_management.php" class="active">
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
               
               </a></li>  
 		  <li><a href="content_management.php">
@@ -118,28 +121,32 @@ session_start();
 
             <div class="contentbody">
                 <div align=center>
-                    <h1>UPDATE USER INFORMATION</h1>
-                    <?php if ($user_data) { ?>
+                    <h1>UPDATE STUDENT INFORMATION</h1>
+                    
                     <form method="post" enctype="multipart/form-data">
                             <div class="input-box">
                                 <div class="input-field">
-                                    <input type="text" class="input" name="employeeName" value="<?php echo $user_data['employeeName']; ?>" required>
+                                    <input type="text" class="input" name="studentName" required>
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" class="input" name="employeeEmail" value="<?php echo $user_data['employeeEmail']; ?>" required>
+                                    <input type="text" class="input" name="studentEmail" required>
                                     <label for="email">Email</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" class="input" name="employeePassword" value="<?php echo $user_data['employeePassword']; ?>" required>
+                                    <input type="text" class="input" name="studentPassword" required>
                                     <label for="password">Password</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" class="input" name="employeePhone" value="<?php echo $user_data['employeePhone']; ?>" required>
+                                    <input type="text" class="input" name="studentPhone" required>
                                     <label for="phone">Phone</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" class="input" name="employeeAddress" value="<?php echo $user_data['employeeAddress']; ?>" required>
+                                    <input type="text" class="input" name="studentGender" required>
+                                    <label for="gender">Gender</label>
+                                </div>
+                                <div class="input-field">
+                                    <input type="text" class="input" name="studentAddress" required>
                                     <label for="address">Address</label>
                                 </div>
                                 <div class="input-field">
@@ -148,10 +155,7 @@ session_start();
                                 </div>
                             </div>
                     </form>
-                    <?php }?>
-                </div>
-                   
-
+                </div>  
             </div>
 
         </div>

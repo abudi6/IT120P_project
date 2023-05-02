@@ -5,7 +5,28 @@ session_start();
 	include("../functions.php");
 
 	$user_data = check_login_admin($con);
+    $user_id = $user_data['id'];
 
+	if($_SERVER['REQUEST_METHOD'] == "POST")
+	{
+		//something was posted
+		$title = $_POST['title'];
+        $description = $_POST['description'];
+
+		if(!empty($title))
+		{
+            
+			$query = "insert into announcements (title,description) values ('$title','$description')";
+
+			mysqli_query($con, $query);
+
+			header("Location: admin_dashboard.php");
+			die;
+		}else
+		{
+			header("Location: content_management.php?error=Invalid Input!");
+		}
+	}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +50,6 @@ session_start();
 
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
-    <link rel="stylesheet" href="../../css/content_add.css"/>
 </head>
 <body>
 
@@ -56,11 +76,11 @@ session_start();
             </div>
         </div>
         <ul class="siderbar_menu">
-            <li><a href="admin_dashboard.php" class="active">
+            <li><a href="admin_dashboard.php" >
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="profile.php">
+          <li><a href="profile.php" >
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
@@ -68,15 +88,14 @@ session_start();
               <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
               
               </a></li>  
-		  <li><a href="content_management.php">
+		  <li><a href="content_management.php" class="active">
               <div class="icon"><i class="fa-solid fa-file-pen"></i>  Manage Content</div>
               
               </a></li>  
-
-            <li><a href="messaging.php">
+          <li><a href="messaging.php">
               <div class="icon"><i class="fa-solid fa-envelope"></i>  Messaging</div>
               
-              </a></li>     
+              </a></li>
           <li><a href="logout.php">
               <div class="icon"><i class="fa-solid fa-right-from-bracket"></i>  Logout</div>
               
@@ -95,55 +114,36 @@ session_start();
 				<img class="logo_img" src="../../assets/icons/logo2.png"><b>E-LEARNSTER</b>
          	</ul>
 		</div>
-      <div class="container">
-        <div class="announcement">
-			<p class="container_name"><a style="color:black;" href="announcements.php"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></a></p>
-            <div class="item">
-                <h3> 
-                    <?php 
-                    $query = "SELECT * FROM announcements ORDER BY id DESC LIMIT 1";
-                    $result = mysqli_query($con, $query); 
-                    $data = mysqli_fetch_assoc($result);
-                    echo $data['title']; 
-                    ?>
-                </h3> 
-                    <?php
-                    echo $data['description'];
-                    ?>        
-                    <h4 style="color:black; text-align:right;">
-                        <?php echo $data['dateCreated'];?>
-                    </h4>        
+      
+        <div class="container">
+
+            <div class="contentbody">
+                <div align=center>
+                    <h1>ADD ANNOUNCEMENT</h1>
+                    <?php if ($user_data) { ?>
+                    <form method="post" enctype="multipart/form-data">
+                            <div class="input-box">
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="title" required autocomplete="off">
+                                <label for="title">Subject Title</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="text" class="input" id="text" name="description" required autocomplete="off">
+                                <label for="desc">Content</label>
+                            </div>
+                            <div class="input-field">
+                                <input type="submit" class="submit" value="ADD">
+                                
+                            </div>
+                            </div>
+                    </form>
+                    <?php }?>
+                </div>
+                   
 
             </div>
+
         </div>
-		<div class="sub_container">
-			<div class="container1">
-				<p class="container_name"><h1>TOTAL STUDENTS ENROLLED  <i class="fa-solid fa-users"></i></h1></p>
-                <p class="container_body">
-                    <?php 
-                    $query = "select * from students";
-                    $result = mysqli_query($con, $query); 
-                    $rowcount=mysqli_num_rows($result)-1;
-                    echo $rowcount;
-                    ?>
-                </p>
-			</div>
-			<div>
-				<div class="container2">
-					<p class="container_name"><h1>TOTAL COURSES AVAILABLE  <i class="fa-solid fa-book"></i></h1></p>
-                    <p class="container_body">
-                        <?php 
-                        $query = "select * from courses";
-                        $result = mysqli_query($con, $query); 
-                        $rowcount=mysqli_num_rows($result)-1;
-                        echo $rowcount;
-                        ?>                   
-                    </p>    
-				</div>
-			</div>
-		</div>
-      </div>
-      
     </div>
 </div>
 </body>

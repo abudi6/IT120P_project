@@ -27,9 +27,9 @@ session_start();
     </script>
 	<title>E-LEARNSTER: Web-based Learning Management System | Admin Dashboard</title>
 
+
 	<!-- css file link -->
 	<link rel="stylesheet" href="../../css/content.css"/>
-    <link rel="stylesheet" href="../../css/content_add.css"/>
 </head>
 <body>
 
@@ -56,7 +56,7 @@ session_start();
             </div>
         </div>
         <ul class="siderbar_menu">
-            <li><a href="admin_dashboard.php" class="active">
+            <li><a href="admin_dashboard.php" >
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
@@ -68,15 +68,14 @@ session_start();
               <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
               
               </a></li>  
-		  <li><a href="content_management.php">
+		  <li><a href="content_management.php" class="active">
               <div class="icon"><i class="fa-solid fa-file-pen"></i>  Manage Content</div>
               
               </a></li>  
-
-            <li><a href="messaging.php">
+          <li><a href="messaging.php">
               <div class="icon"><i class="fa-solid fa-envelope"></i>  Messaging</div>
               
-              </a></li>     
+              </a></li>  
           <li><a href="logout.php">
               <div class="icon"><i class="fa-solid fa-right-from-bracket"></i>  Logout</div>
               
@@ -95,55 +94,47 @@ session_start();
 				<img class="logo_img" src="../../assets/icons/logo2.png"><b>E-LEARNSTER</b>
          	</ul>
 		</div>
-      <div class="container">
-        <div class="announcement">
-			<p class="container_name"><a style="color:black;" href="announcements.php"><h1>ANNOUNCEMENTS  <i class="fa-regular fa-newspaper"></i></h1></a></p>
-            <div class="item">
-                <h3> 
-                    <?php 
-                    $query = "SELECT * FROM announcements ORDER BY id DESC LIMIT 1";
+      
+        <div class="container">
+            <div class="contentbody">
+
+            <h2>All Students</h2>
+                <table class="table ">
+                    <thead>
+                    <tr>
+                        <th class="text-center">ID </th>
+                        <th class="text-center">Course </th>
+                        <th class="text-center">Description </th>
+                    </tr>
+                    </thead>
+                    <?php
+                    include_once "../connection.php";
+                    $query="SELECT * from courses";
                     $result = mysqli_query($con, $query); 
                     $data = mysqli_fetch_assoc($result);
-                    echo $data['title']; 
+                    $count=1;
+                    if ($result-> num_rows > 0){
+                        while ($row=$result-> fetch_assoc()) {
+                        
                     ?>
-                </h3> 
+                    <tr>
+                    <td><?=$count?></td>
+                    <td><?=$row["courseName"]?></td>
+                    <td><?=$row["courseDescription"]?></td>
+                    </tr>
                     <?php
-                    echo $data['description'];
-                    ?>        
-                    <h4 style="color:black; text-align:right;">
-                        <?php echo $data['dateCreated'];?>
-                    </h4>        
-
-            </div>
-        </div>
-		<div class="sub_container">
-			<div class="container1">
-				<p class="container_name"><h1>TOTAL STUDENTS ENROLLED  <i class="fa-solid fa-users"></i></h1></p>
-                <p class="container_body">
-                    <?php 
-                    $query = "select * from students";
-                    $result = mysqli_query($con, $query); 
-                    $rowcount=mysqli_num_rows($result)-1;
-                    echo $rowcount;
+                            $count=$count+1;
+                        
+                        }
+                    }
                     ?>
-                </p>
-			</div>
-			<div>
-				<div class="container2">
-					<p class="container_name"><h1>TOTAL COURSES AVAILABLE  <i class="fa-solid fa-book"></i></h1></p>
-                    <p class="container_body">
-                        <?php 
-                        $query = "select * from courses";
-                        $result = mysqli_query($con, $query); 
-                        $rowcount=mysqli_num_rows($result)-1;
-                        echo $rowcount;
-                        ?>                   
-                    </p>    
-				</div>
-			</div>
-		</div>
-      </div>
-      
+                </table>
+                <a href="add_course.php" class="myButton">ADD COURSE</a>
+                <a href="remove_course.php" class="myButton">REMOVE COURSE</a>
+                <a href="update_course.php" class="myButton">EDIT COURSE</a>
+            </div>
+            
+        </div>
     </div>
 </div>
 </body>

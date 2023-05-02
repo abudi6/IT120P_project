@@ -83,12 +83,12 @@ session_start();
               <div class="icon"><i class="fa-solid fa-house"></i>  Dashboard</div>
               
               </a></li>  
-          <li><a href="profile.php" class="active">
+          <li><a href="profile.php" >
               <div class="icon"><i class="fa-sharp fa-solid fa-user"></i>  Profile</div>
               
               </a></li>  
-		  <li><a href="user_management.php" >
-              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Users</div>
+		  <li><a href="user_management.php" class="active">
+              <div class="icon"><i class="fa-solid fa-users-gear"></i>  Manage Students</div>
               
               </a></li>  
 		  <li><a href="content_management.php">

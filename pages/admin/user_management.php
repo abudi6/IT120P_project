@@ -138,6 +138,7 @@ session_start();
                     ?>
                 </table>
                 <a href="add_student.php" class="myButton">ADD STUDENT</a>
+                <a href="remove_student.php" class="myButton">REMOVE STUDENT</a>
                 <a href="update_student.php" class="myButton">EDIT STUDENT</a>
             </div>
             
